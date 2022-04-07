@@ -1,5 +1,5 @@
 const fonts = {
-  en: 'Noto Serif',
-  ja: 'Noto Serif JP',
+  italic: "'Noto Serif', serif",
+  default: "'Noto Serif JP', serif",
 };
 export default fonts;
