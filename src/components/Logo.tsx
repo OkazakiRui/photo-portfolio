@@ -5,8 +5,8 @@ const Logo: VFC = () => (
   <Heading
     fontFamily="default"
     textTransform="uppercase"
-    letterSpacing={2}
-    fontWeight="nomal"
+    letterSpacing={8}
+    fontWeight="normal"
     fontSize={['xl', '2xl']}
     as="h1"
   >
