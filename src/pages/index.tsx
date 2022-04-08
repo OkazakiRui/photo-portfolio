@@ -1,8 +1,15 @@
-import Logo from 'components/Logo';
+import Layout from 'components/Layout';
 import type { NextPage } from 'next';
 
-const Home: NextPage = () => {
-  return <Logo />;
-};
+const Home: NextPage = () => (
+  <Layout
+    categories={[
+      { id: 1, name: 'piyo' },
+      { id: 2, name: 'fugafuga' },
+    ]}
+  >
+    hoge
+  </Layout>
+);
 
 export default Home;
