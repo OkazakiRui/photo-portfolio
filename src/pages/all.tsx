@@ -1,4 +1,4 @@
-import Masonry from 'react-masonry-css';
+import Masonry from '@mtsmfm/react-masonry';
 import { PostItem } from 'apis/post';
 import Layout from 'components/Layout';
 import { getAllPost } from 'libs/apiClient';
@@ -10,13 +10,6 @@ type Props = {
   posts: PostItem[];
 };
 
-const breakpointCols = {
-  default: 4,
-  1100: 3,
-  700: 2,
-  500: 1,
-};
-
 const all: NextPage<Props> = ({ posts }) => (
   <Layout
     categories={[
@@ -24,15 +17,7 @@ const all: NextPage<Props> = ({ posts }) => (
       { id: 2, name: 'fugafuga' },
     ]}
   >
-    <Box
-      as={Masonry}
-      breakpointCols={breakpointCols}
-      display="flex"
-      width="auto"
-      gap="30px"
-      className=""
-      columnClassName=""
-    >
+    <Masonry minColumnWidth={400} gap={30} transition="0.5s">
       {posts.map((post) => (
         <Box key={post.id} className="imageContainer">
           <NextImage
@@ -42,7 +27,7 @@ const all: NextPage<Props> = ({ posts }) => (
           />
         </Box>
       ))}
-    </Box>
+    </Masonry>
   </Layout>
 );
 
