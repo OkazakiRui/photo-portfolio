@@ -21,7 +21,7 @@ const OriginalLink: VFC<Props> = ({ url, label, selected = false }) => (
       textTransform="uppercase"
       display="block"
       w="full"
-      h="fit"
+      h="auto"
       textAlign="right"
     >
       {label}
