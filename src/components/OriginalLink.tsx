@@ -4,10 +4,10 @@ import { Button } from '@chakra-ui/react';
 
 type Props = {
   url: string;
-  name: string;
+  label: string;
   selected?: boolean;
 };
-const Link: VFC<Props> = ({ url, name, selected = false }) => (
+const OriginalLink: VFC<Props> = ({ url, label, selected = false }) => (
   <NextLink href={url} passHref>
     <Button
       as="a"
@@ -24,9 +24,9 @@ const Link: VFC<Props> = ({ url, name, selected = false }) => (
       h="fit"
       textAlign="right"
     >
-      {name}
+      {label}
     </Button>
   </NextLink>
 );
 
-export default Link;
+export default OriginalLink;
