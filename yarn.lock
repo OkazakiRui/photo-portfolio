@@ -1499,7 +1499,7 @@ asn1.js@^5.2.0:
     minimalistic-assert "^1.0.0"
     safer-buffer "^2.1.0"
 
-aspida@^1.7.1:
+aspida@^1.7.1, aspida@^1.9.1:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/aspida/-/aspida-1.9.1.tgz#e313be8d1e058b8e32d7a7d227fa73bde8085b56"
   integrity sha512-jROy/70paxRwRknT40lAxXJmveSDkPZbudZlJH8kS+ACQ6Ub73cbDokxfl5iXx/c/FBkA8/RTkrtoofYx6Xscg==
