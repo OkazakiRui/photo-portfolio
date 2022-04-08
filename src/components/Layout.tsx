@@ -46,7 +46,7 @@ const Layout: VFC<Props> = ({ children, categories }) => {
         </Box>
         <List mt={[2, 0]}>
           <ListItem>
-            <OriginalLink url="/" label="selected" selected />
+            <OriginalLink url="/" label="selected" />
             <OriginalLink url="/all" label="all" />
           </ListItem>
           {categories.map((category) => (
