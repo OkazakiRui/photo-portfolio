@@ -5,6 +5,7 @@ const styles = {
     'html, body, #__next': {
       height: '100%',
       fontFamily: fonts.default,
+      boxSizing: 'border-box',
     },
     body: {
       color: 'body',
