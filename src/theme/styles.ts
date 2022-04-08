@@ -10,6 +10,14 @@ const styles = {
     body: {
       color: 'body',
     },
+    '.imageContainer > div': {
+      position: 'static !important',
+    },
+    '.imageContainer img': {
+      position: 'static !important',
+      width: '100% !important',
+      height: 'auto !important',
+    },
   },
 };
 export default styles;
