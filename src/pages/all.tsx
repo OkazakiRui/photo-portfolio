@@ -3,7 +3,7 @@ import { PostItem } from 'apis/post';
 import Layout from 'components/Layout';
 import { getAllPost } from 'libs/apiClient';
 import type { NextPage } from 'next';
-import { Box, Image } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import NextImage from 'next/image';
 
 type Props = {
@@ -35,10 +35,8 @@ const all: NextPage<Props> = ({ posts }) => (
     >
       {posts.map((post) => (
         <Box key={post.id} className="imageContainer">
-          {/* TODO: as NextImage か NextImage でパフォーマンスは変わるか検証 */}
-          <Image
-            as={NextImage}
-            src={post.photo.url}
+          <NextImage
+            src={`${post.photo.url}?w=500`}
             layout="fill"
             objectFit="contain"
           />
