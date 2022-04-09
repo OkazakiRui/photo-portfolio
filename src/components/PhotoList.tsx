@@ -15,7 +15,7 @@ const PhotoList: VFC<Props> = ({ posts }) => {
     <Masonry minColumnWidth={400} gap={20} transition="0.5s">
       {posts.map((post) => (
         <NextLink
-          href={`/${post.id}${
+          href={`/post/${post.id}${
             router.pathname !== '/'
               ? `?category=${router.pathname.slice(1)}`
               : ''
