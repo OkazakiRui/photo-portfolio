@@ -24,6 +24,7 @@ const Layout: VFC<Props> = ({ children, categories }) => {
         as="header"
         ref={headerElement}
         pos={['static', 'fixed']}
+        zIndex="999999"
         flexDirection={['column', 'row']}
         justify="space-between"
         align="left"
