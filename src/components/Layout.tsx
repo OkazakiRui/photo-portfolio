@@ -34,6 +34,7 @@ const Layout: VFC<Props> = ({ children, categories }) => {
         px={[0, 6]}
         top={0}
         left={0}
+        mb={[4, 0]}
       >
         <Box>
           <Logo />
