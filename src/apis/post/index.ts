@@ -1,6 +1,6 @@
 import { MicroCMSQueries } from 'microcms-js-sdk';
 import { CommonItem, CommonList } from 'apis/types';
-import { Genre } from 'apis/genre';
+import { GenreItem } from 'apis/genre';
 
 type Photo = {
   url: string;
@@ -12,7 +12,7 @@ export type PostItem = CommonItem & {
   title: string;
   favorite: boolean;
   shootingDate: string;
-  genre: Genre[];
+  genre: GenreItem[];
   photo: Photo;
 };
 
