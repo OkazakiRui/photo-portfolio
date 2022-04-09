@@ -17,5 +17,12 @@ const config = {
 
 const fetchClient = api(aspida(fetch, { baseURL: endPoint }));
 
-export const getAllPost = () =>
-  fetchClient.post.$get({ config, query: { limit: 1000 } });
+export const getAllPost = (filter?: string) => {
+  if (filter === 'all')
+    return fetchClient.post.$get({ config, query: { limit: 1000 } });
+
+  return fetchClient.post.$get({
+    config,
+    query: { limit: 1000, filters: 'favorite[equals]true' },
+  });
+};

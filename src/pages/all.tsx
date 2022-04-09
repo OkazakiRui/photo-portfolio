@@ -20,7 +20,7 @@ const All: NextPage<Props> = ({ posts }) => (
 );
 
 export const getStaticProps = async () => {
-  const posts = await getAllPost();
+  const posts = await getAllPost('all');
 
   return {
     props: {
