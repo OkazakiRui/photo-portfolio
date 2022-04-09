@@ -26,3 +26,6 @@ export const getAllPost = (filter?: string) => {
     query: { limit: 1000, filters: 'favorite[equals]true' },
   });
 };
+
+export const getAllGenre = () =>
+  fetchClient.genre.$get({ config, query: { limit: 1000 } });

@@ -1,10 +1,6 @@
 import { MicroCMSQueries } from 'microcms-js-sdk';
 import { CommonItem, CommonList } from 'apis/types';
-
-type Genre = CommonItem & {
-  genreName: string;
-  genreJPName: string;
-};
+import { Genre } from 'apis/genre';
 
 type Photo = {
   url: string;
