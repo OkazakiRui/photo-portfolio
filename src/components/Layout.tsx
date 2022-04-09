@@ -19,7 +19,8 @@ const Layout: VFC<Props> = ({ children, categories }) => {
   }, [headerElement]);
 
   return (
-    <Box p={[4, 6]} pt={[4, `${elementHeight}px`]}>
+    // space 6 = 1.5rem
+    <Box p={[4, 6]} pt={[4, `calc(${elementHeight}px + 1.5rem)`]}>
       <Flex
         as="header"
         ref={headerElement}
