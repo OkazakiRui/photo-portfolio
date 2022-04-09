@@ -1,33 +1,21 @@
-import Masonry from '@mtsmfm/react-masonry';
-import { PostItem } from 'apis/post';
 import Layout from 'components/Layout';
+import { PostItem } from 'apis/post';
 import { getAllPost } from 'libs/apiClient';
 import type { NextPage } from 'next';
-import { Box } from '@chakra-ui/react';
-import NextImage from 'next/image';
+import PhotoList from 'components/PhotoList';
 
 type Props = {
   posts: PostItem[];
 };
 
-const all: NextPage<Props> = ({ posts }) => (
+const All: NextPage<Props> = ({ posts }) => (
   <Layout
     categories={[
       { id: 1, name: 'piyo' },
       { id: 2, name: 'fugafuga' },
     ]}
   >
-    <Masonry minColumnWidth={400} gap={30} transition="0.5s">
-      {posts.map((post) => (
-        <Box key={post.id} className="imageContainer">
-          <NextImage
-            src={`${post.photo.url}?w=500`}
-            layout="fill"
-            objectFit="contain"
-          />
-        </Box>
-      ))}
-    </Masonry>
+    <PhotoList posts={posts} />
   </Layout>
 );
 
@@ -41,4 +29,4 @@ export const getStaticProps = async () => {
   };
 };
 
-export default all;
+export default All;
