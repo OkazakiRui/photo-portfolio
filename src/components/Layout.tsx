@@ -3,13 +3,14 @@ import { Flex, List, ListItem, Box, Text } from '@chakra-ui/react';
 
 import Logo from 'components/Logo';
 import OriginalLink from 'components/OriginalLink';
+import { GenreItem } from 'apis/genre';
 
 type Props = {
   children: ReactNode;
-  categories: { id: number; name: string }[];
+  genres: GenreItem[];
 };
 
-const Layout: VFC<Props> = ({ children, categories }) => {
+const Layout: VFC<Props> = ({ children, genres }) => {
   const headerElement = useRef<HTMLDivElement>(null);
   const [elementHeight, setElementHeight] = useState<number>(0);
 
@@ -52,9 +53,12 @@ const Layout: VFC<Props> = ({ children, categories }) => {
             <OriginalLink url="/" label="selected" />
             <OriginalLink url="/all" label="all" />
           </ListItem>
-          {categories.map((category) => (
-            <ListItem key={category.id}>
-              <OriginalLink url={`/${category.name}`} label={category.name} />
+          {genres.map((genre) => (
+            <ListItem key={genre.id}>
+              <OriginalLink
+                url={`/${genre.genreName}`}
+                label={genre.genreName}
+              />
             </ListItem>
           ))}
         </List>

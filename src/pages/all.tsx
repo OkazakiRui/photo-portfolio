@@ -1,30 +1,29 @@
 import Layout from 'components/Layout';
 import { PostItem } from 'apis/post';
-import { getAllPost } from 'libs/apiClient';
+import { getAllGenre, getAllPost } from 'libs/apiClient';
 import type { NextPage } from 'next';
 import PhotoList from 'components/PhotoList';
+import { GenreItem } from 'apis/genre';
 
 type Props = {
   posts: PostItem[];
+  genres: GenreItem[];
 };
 
-const All: NextPage<Props> = ({ posts }) => (
-  <Layout
-    categories={[
-      { id: 1, name: 'piyo' },
-      { id: 2, name: 'fugafuga' },
-    ]}
-  >
+const All: NextPage<Props> = ({ posts, genres }) => (
+  <Layout genres={genres}>
     <PhotoList posts={posts} />
   </Layout>
 );
 
 export const getStaticProps = async () => {
   const posts = await getAllPost('all');
+  const genres = await getAllGenre();
 
   return {
     props: {
       posts: posts.contents,
+      genres: genres.contents,
     },
   };
 };
