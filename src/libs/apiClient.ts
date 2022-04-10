@@ -27,5 +27,8 @@ export const getAllPost = (filter?: string) => {
   });
 };
 
+export const getPostById = (id: string) =>
+  fetchClient.post._contentId(id).$get({ config }); // eslint-disable-line no-underscore-dangle, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return
+
 export const getAllGenre = () =>
   fetchClient.genre.$get({ config, query: { limit: 1000 } });
