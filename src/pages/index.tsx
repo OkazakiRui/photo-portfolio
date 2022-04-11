@@ -16,7 +16,7 @@ const Index: NextPage<Props> = ({ posts, genres }) => (
 );
 
 export const getStaticProps = async () => {
-  const posts = await getAllPost();
+  const posts = await getAllPost('selected');
   const genres = await getAllGenre();
 
   return {

@@ -17,7 +17,7 @@ const All: NextPage<Props> = ({ posts, genres }) => (
 );
 
 export const getStaticProps = async () => {
-  const posts = await getAllPost('all');
+  const posts = await getAllPost();
   const genres = await getAllGenre();
 
   return {
