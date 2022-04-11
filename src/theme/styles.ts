@@ -12,6 +12,8 @@ const styles = {
     },
     '.imageContainer > div': {
       position: 'static !important',
+      width: '100% !important',
+      height: '100% !important',
     },
     '.imageContainer img': {
       position: 'static !important',
