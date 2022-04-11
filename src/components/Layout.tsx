@@ -51,12 +51,12 @@ const Layout: VFC<Props> = ({ children, genres }) => {
         <List mt={[2, 0]}>
           <ListItem>
             <OriginalLink url="/" label="selected" />
-            <OriginalLink url="/all" label="all" />
+            <OriginalLink url="/category/all" label="all" />
           </ListItem>
           {genres.map((genre) => (
             <ListItem key={genre.id}>
               <OriginalLink
-                url={`/${genre.genreName}`}
+                url={`/category/${genre.genreName}`}
                 label={genre.genreName}
               />
             </ListItem>
