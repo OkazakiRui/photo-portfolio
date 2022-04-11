@@ -21,9 +21,15 @@ export const getAllPost = (filter?: string) => {
   if (filter === 'all')
     return fetchClient.post.$get({ config, query: { limit: 1000 } });
 
+  if (!filter)
+    return fetchClient.post.$get({
+      config,
+      query: { limit: 1000, filters: 'favorite[equals]true' },
+    });
+
   return fetchClient.post.$get({
     config,
-    query: { limit: 1000, filters: 'favorite[equals]true' },
+    query: { limit: 1000, filters: `genre[contains]${filter}` },
   });
 };
 
@@ -32,3 +38,12 @@ export const getPostById = (id: string) =>
 
 export const getAllGenre = () =>
   fetchClient.genre.$get({ config, query: { limit: 1000 } });
+
+export const getGenreIdByName = (name: string) => {
+  if (!name) throw new Error('nameが引数に渡されてません');
+
+  return fetchClient.genre.$get({
+    config,
+    query: { limit: 1, filters: `genreName[equals]${name}` },
+  });
+};
