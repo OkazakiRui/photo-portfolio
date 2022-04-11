@@ -4,6 +4,7 @@ import { Flex, List, ListItem, Box, Text } from '@chakra-ui/react';
 import Logo from 'components/Logo';
 import OriginalLink from 'components/OriginalLink';
 import { GenreItem } from 'apis/genre';
+import { useRouter } from 'next/router';
 
 type Props = {
   children: ReactNode;
@@ -18,6 +19,8 @@ const Layout: VFC<Props> = ({ children, genres }) => {
     if (!headerElement.current) return;
     setElementHeight(headerElement.current.clientHeight);
   }, [headerElement]);
+
+  const router = useRouter();
 
   return (
     // space 6 = 1.5rem
@@ -50,14 +53,23 @@ const Layout: VFC<Props> = ({ children, genres }) => {
         </Box>
         <List mt={[2, 0]}>
           <ListItem>
-            <OriginalLink url="/" label="selected" />
-            <OriginalLink url="/category/all" label="all" />
+            <OriginalLink
+              url="/"
+              label="selected"
+              selected={router.asPath === '/'}
+            />
+            <OriginalLink
+              url="/category/all"
+              label="all"
+              selected={router.asPath === '/category/all'}
+            />
           </ListItem>
           {genres.map((genre) => (
             <ListItem key={genre.id}>
               <OriginalLink
                 url={`/category/${genre.genreName}`}
                 label={genre.genreName}
+                selected={router.asPath === `/category/${genre.genreName}`}
               />
             </ListItem>
           ))}
