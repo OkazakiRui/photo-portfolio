@@ -15,12 +15,14 @@ const Post: NextPage<Props> = ({ post }) => {
 
   return (
     <Box p={[4, 6]}>
-      <Logo />
+      <Box as="header">
+        <Logo />
+      </Box>
 
       <Center
         h={[
-          'calc(100vh - 1.5rem * 1.2 - 2rem)',
-          'calc(100vh - 1.5rem * 1.2 - 3rem)',
+          'calc(100vh - 2rem - 0.25rem - 1.125rem * 1.33 - 0.5rem - 0.75rem * 1.5)',
+          'calc(100vh - 3rem - 0.25rem - 1.25rem * 1.2 - 0.5rem - 0.875rem * 1.5)',
         ]}
       >
         <Box className="imageContainer" h="96%">
@@ -36,6 +38,9 @@ const Post: NextPage<Props> = ({ post }) => {
           />
         </Box>
       </Center>
+      {/* <p>
+        {isHorizontal ? `${post.photo.url}?w=1080` : `${post.photo.url}?h=1000`}
+      </p> */}
     </Box>
   );
 };
