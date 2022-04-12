@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useRef, useState, VFC } from 'react';
-import { Flex, List, ListItem, Box, Text } from '@chakra-ui/react';
+import { Flex, List, ListItem, Box, VStack } from '@chakra-ui/react';
 
 import Logo from 'components/Logo';
 import OriginalLink from 'components/OriginalLink';
@@ -40,24 +40,16 @@ const Layout: VFC<Props> = ({ children, genres }) => {
         left={0}
         mb={[4, 0]}
       >
-        <Box>
-          <Logo />
-          <Text
-            fontFamily="italic"
-            mt={2}
-            fontSize={['sm', 'md']}
-            letterSpacing={2}
-          >
-            Photograph Portfolio
-          </Text>
-        </Box>
-        <List mt={[2, 0]}>
+        <Logo />
+        <VStack as={List} align="left" mt={[2, 0]}>
           <ListItem>
             <OriginalLink
               url="/"
               label="selected"
               selected={router.asPath === '/'}
             />
+          </ListItem>
+          <ListItem>
             <OriginalLink
               url="/category/all"
               label="all"
@@ -73,7 +65,7 @@ const Layout: VFC<Props> = ({ children, genres }) => {
               />
             </ListItem>
           ))}
-        </List>
+        </VStack>
       </Flex>
       {children}
     </Box>

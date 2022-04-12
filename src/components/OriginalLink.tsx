@@ -18,6 +18,7 @@ const OriginalLink: VFC<Props> = ({ url, label, selected = false }) => (
       px={0}
       py={1}
       fontWeight="normal"
+      fontSize="sm"
       letterSpacing={4}
       _hover={{ color: 'accent' }}
       textTransform="uppercase"
