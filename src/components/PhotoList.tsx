@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { VFC } from 'react';
 import Masonry from '@mtsmfm/react-masonry';
 import NextImage from 'next/image';
@@ -17,9 +16,7 @@ const PhotoList: VFC<Props> = ({ posts }) => {
       {posts.map((post) => (
         <NextLink
           href={`/post/${post.id}${
-            router.pathname !== '/'
-              ? `?category=${router.pathname.slice(10)}`
-              : ''
+            router.asPath !== '/' ? `?category=${router.asPath.slice(10)}` : ''
           }`}
           key={post.id}
           passHref
