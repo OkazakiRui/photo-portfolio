@@ -10,7 +10,10 @@ const Logo: VFC = () => (
       align="left"
       h="fit-content"
       w="fit-content"
-      gap={[1, 2]}
+      gap={1}
+      _hover={{ color: 'accent' }}
+      transitionProperty="common"
+      transitionDuration="normal"
     >
       <Heading
         fontFamily="default"
@@ -22,12 +25,7 @@ const Logo: VFC = () => (
       >
         Rui Okazaki
       </Heading>
-      <Text
-        fontFamily="italic"
-        mt={2}
-        fontSize={['xs', 'sm']}
-        letterSpacing={2}
-      >
+      <Text fontFamily="italic" fontSize={['xs', 'sm']} letterSpacing={2}>
         Photograph Portfolio
       </Text>
     </VStack>
