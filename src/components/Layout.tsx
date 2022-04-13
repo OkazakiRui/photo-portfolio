@@ -23,7 +23,6 @@ const Layout: VFC<Props> = ({ children, genres }) => {
   const router = useRouter();
 
   return (
-    // space 6 = 1.5rem
     <Box p={[4, 6]} pt={[4, `calc(${elementHeight}px + 1.5rem)`]}>
       <Flex
         as="header"
@@ -39,9 +38,12 @@ const Layout: VFC<Props> = ({ children, genres }) => {
         top={0}
         left={0}
         mb={[4, 0]}
+        pointerEvents="none"
       >
-        <Logo />
-        <VStack as={List} align="left" mt={[2, 0]}>
+        <Box pointerEvents="auto">
+          <Logo />
+        </Box>
+        <VStack as={List} align="left" mt={[2, 0]} pointerEvents="auto">
           <ListItem>
             <OriginalLink
               url="/"
