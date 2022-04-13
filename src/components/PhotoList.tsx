@@ -16,6 +16,7 @@ const PhotoList: VFC<Props> = ({ posts }) => {
     <Masonry minColumnWidth={400} gap={20} transition="0.5s">
       {posts.map((post) => (
         <Box
+          key={post.id}
           position="relative"
           sx={{
             '&:hover::after': {
@@ -55,7 +56,6 @@ const PhotoList: VFC<Props> = ({ posts }) => {
                 ? `?category=${router.asPath.slice(10)}`
                 : ''
             }`}
-            key={post.id}
             passHref
           >
             <a className="imageContainer" href="/404">
