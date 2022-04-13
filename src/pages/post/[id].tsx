@@ -18,7 +18,7 @@ const Post: NextPage<Props> = ({ post, postsData }) => {
   const router = useRouter();
   const queryGenre =
     'category' in router.query ? (router.query.category as string) : 'selected';
-  const posts = postsData[queryGenre];
+  const posts = queryGenre in postsData ? postsData[queryGenre] : [];
   const indexNumber = posts.findIndex((postItem) => postItem.id === post.id);
   const [prev, next] = [posts[indexNumber - 1], posts[indexNumber + 1]];
 
