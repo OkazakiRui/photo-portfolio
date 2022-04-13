@@ -9,7 +9,7 @@ type Photo = {
 };
 
 export type PostItem = CommonItem & {
-  title: string;
+  title?: string;
   favorite: boolean;
   shootingDate: string;
   genre: GenreItem[];
