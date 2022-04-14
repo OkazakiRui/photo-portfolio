@@ -78,7 +78,7 @@ const Post: NextPage<Props> = ({ post, postsData }) => {
             <Button
               as="a"
               href="/"
-              pos={['static', 'absolute']}
+              pos={['static', 'fixed']}
               top={0}
               left={0}
               height={['fit-content', 'full']}
@@ -87,7 +87,7 @@ const Post: NextPage<Props> = ({ post, postsData }) => {
               width={['fit-content', '5rem']}
               bg="transparent"
               borderRadius={['50%', '0']}
-              border="1px solid"
+              border={['1px solid', 'unset']}
               borderColor="body"
               minWidth={0}
               _hover={{
@@ -114,7 +114,7 @@ const Post: NextPage<Props> = ({ post, postsData }) => {
             <Button
               as="a"
               href="/"
-              pos={['static', 'absolute']}
+              pos={['static', 'fixed']}
               top={0}
               right={0}
               height={['fit-content', 'full']}
@@ -123,7 +123,7 @@ const Post: NextPage<Props> = ({ post, postsData }) => {
               zIndex={1}
               bg="transparent"
               borderRadius={['50%', '0']}
-              border="1px solid"
+              border={['1px solid', 'unset']}
               borderColor="body"
               minWidth={0}
               _hover={{
