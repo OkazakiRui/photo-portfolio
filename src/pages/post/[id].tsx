@@ -24,16 +24,16 @@ const Post: NextPage<Props> = ({ post, postsData }) => {
   const [prev, next] = [posts[indexNumber - 1], posts[indexNumber + 1]];
 
   return (
-    <Box p={[4, 6]}>
+    <Box p={[4, 6]} h="100%">
       <Box as="header" pos="relative" zIndex={10}>
         <Logo />
       </Box>
       {/* <Box mb={[4, 6]}> */}
-      <Box>
+      <Box h="100%">
         <Center
           h={[
-            'calc(100vh - 2rem - 0.25rem - 1.125rem * 1.33 - 0.5rem - 0.75rem * 1.5)',
-            'calc(100vh - 3rem - 0.25rem - 1.25rem * 1.2 - 0.5rem - 0.875rem * 1.5)',
+            'calc(100% - 2rem - 0.25rem - 1.125rem * 1.33 - 0.5rem - 0.75rem * 1.5)',
+            'calc(100% - 3rem - 0.25rem - 1.25rem * 1.2 - 0.5rem - 0.875rem * 1.5)',
           ]}
         >
           <Box className="imageContainer" h={['84%', '96%']} w={['98%', '78%']}>
@@ -61,7 +61,13 @@ const Post: NextPage<Props> = ({ post, postsData }) => {
           {'title' in post ? post.title : 'No Title'}
         </Heading>
       </Box>
-      <Flex justify="right" pos={['absolute', 'static']} bottom={5} right={3}>
+      <Flex
+        justify="right"
+        pos={['absolute', 'static']}
+        bottom={5}
+        right={3}
+        gap={2}
+      >
         {prev && (
           <NextLink
             href={`/post/${prev.id}${
@@ -80,7 +86,10 @@ const Post: NextPage<Props> = ({ post, postsData }) => {
               zIndex={1}
               width={['fit-content', '5rem']}
               bg="transparent"
-              borderRadius="0"
+              borderRadius={['50%', '0']}
+              border="1px solid"
+              borderColor="body"
+              minWidth={0}
               _hover={{
                 bg: ['none', 'accent'],
               }}
@@ -91,16 +100,7 @@ const Post: NextPage<Props> = ({ post, postsData }) => {
                 left: 6,
               }}
             >
-              <ArrowBackIcon
-                display={['block', 'none']}
-                p={1}
-                outline="1px solid"
-                outlineColor="body"
-                borderRadius="50%"
-                w={6}
-                h={6}
-                _hover={{ color: 'accent', outlineColor: 'accent' }}
-              />
+              <ArrowBackIcon display={['block', 'none']} p={1} w={6} h={6} />
             </Button>
           </NextLink>
         )}
@@ -118,11 +118,14 @@ const Post: NextPage<Props> = ({ post, postsData }) => {
               top={0}
               right={0}
               height={['fit-content', 'full']}
+              width={['fit-content', '5rem']}
               px={0}
               zIndex={1}
-              width={['fit-content', '5rem']}
               bg="transparent"
-              borderRadius="0"
+              borderRadius={['50%', '0']}
+              border="1px solid"
+              borderColor="body"
+              minWidth={0}
               _hover={{
                 bg: ['none', 'accent'],
               }}
@@ -133,16 +136,7 @@ const Post: NextPage<Props> = ({ post, postsData }) => {
                 right: 5,
               }}
             >
-              <ArrowForwardIcon
-                display={['block', 'none']}
-                p={1}
-                outline="1px solid"
-                outlineColor="body"
-                borderRadius="50%"
-                w={6}
-                h={6}
-                _hover={{ color: 'accent', outlineColor: 'accent' }}
-              />
+              <ArrowForwardIcon display={['block', 'none']} p={1} w={6} h={6} />
             </Button>
           </NextLink>
         )}
