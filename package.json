@@ -27,7 +27,8 @@
     "microcms-js-sdk": "^2.0.0",
     "next": "11.1.4",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-share": "^4.4.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",
@@ -49,7 +50,6 @@
     "eslint-plugin-react-hooks": "^4.4.0",
     "husky": "^7.0.4",
     "prettier": "^2.6.2",
-    "react-icons": "^4.3.1",
     "typescript": "4.3.2",
     "typesync": "^0.9.0"
   }
