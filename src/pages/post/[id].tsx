@@ -26,6 +26,7 @@ import {
   TwitterIcon,
 } from 'react-share';
 import { NextSeo } from 'next-seo';
+import { motion, AnimatePresence } from 'framer-motion';
 
 type Props = {
   post: PostItem;
@@ -80,22 +81,29 @@ const Post: NextPage<Props> = ({ post, postsData }) => {
           pos="relative"
         >
           <Center h="full">
-            <Box
-              className="imageContainer"
-              h={['84%', '96%']}
-              w={['98%', '78%']}
-            >
-              <NextImage
-                src={
-                  isHorizontal
-                    ? `${post.photo.url}?w=1080`
-                    : `${post.photo.url}?h=1000`
-                }
-                layout="fill"
-                objectFit="contain"
-                quality={100}
-              />
-            </Box>
+            <AnimatePresence>
+              <Box
+                className="imageContainer"
+                h={['84%', '96%']}
+                w={['98%', '78%']}
+                as={motion.div}
+                initial={{ opacity: 0, transform: 'translateY(300px)' }}
+                animate={{ opacity: 1, transform: 'translateY(0px)' }}
+                exit={{ opacity: 0, transform: 'translateY(-300px)' }}
+                transition="all 1s"
+              >
+                <NextImage
+                  src={
+                    isHorizontal
+                      ? `${post.photo.url}?w=1080`
+                      : `${post.photo.url}?h=1000`
+                  }
+                  layout="fill"
+                  objectFit="contain"
+                  quality={100}
+                />
+              </Box>
+            </AnimatePresence>
           </Center>
           <Heading
             fontFamily="default"
@@ -138,13 +146,24 @@ const Post: NextPage<Props> = ({ post, postsData }) => {
                   borderColor="body"
                   minWidth={0}
                   _hover={{
-                    bg: ['none', 'accent'],
+                    bgImage: [
+                      'none',
+                      `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${prev.photo.url}?h=900)`,
+                    ],
+                    bgSize: 'cover',
+                    bgPosition: 'center',
                   }}
                   _after={{
                     content: ['""', '"Prev"'],
                     position: 'absolute',
                     transform: ['rotate(0deg)', 'rotate(90deg)'],
-                    left: 6,
+                    left: 3,
+                    letterSpacing: 8,
+                  }}
+                  sx={{
+                    '&:hover::after': {
+                      color: 'white',
+                    },
                   }}
                 >
                   <ArrowBackIcon
@@ -179,13 +198,24 @@ const Post: NextPage<Props> = ({ post, postsData }) => {
                   borderColor="body"
                   minWidth={0}
                   _hover={{
-                    bg: ['none', 'accent'],
+                    bgImage: [
+                      'none',
+                      `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${next.photo.url}?h=900)`,
+                    ],
+                    bgSize: 'cover',
+                    bgPosition: 'center',
                   }}
                   _after={{
                     content: ['""', '"Next"'],
                     position: 'absolute',
                     transform: ['rotate(0deg)', 'rotate(90deg)'],
-                    right: 5,
+                    right: 2,
+                    letterSpacing: 8,
+                  }}
+                  sx={{
+                    '&:hover::after': {
+                      color: 'white',
+                    },
                   }}
                 >
                   <ArrowForwardIcon
