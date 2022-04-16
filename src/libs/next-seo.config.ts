@@ -1,5 +1,7 @@
 export default {
   titleTemplate: '%s | RuiOkazaki Photograph Portfolio',
+  description:
+    '岡崎流依の写真ポートフォリオです。今までに撮った写真が表示されます。',
   defaultTitle: 'RuiOkazaki Photograph Portfolio',
   additionalMetaTags: [
     {
