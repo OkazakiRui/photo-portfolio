@@ -12,6 +12,7 @@ import {
   HStack,
   VStack,
   Icon,
+  Link,
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
@@ -39,8 +40,6 @@ const Post: NextPage<Props> = ({ post, postsData }) => {
       ? window.location.origin
       : '';
   const url = `${origin}${router.asPath}`;
-  // eslint-disable-next-line no-console
-  console.log(url);
 
   const queryGenre =
     'category' in router.query ? (router.query.category as string) : 'selected';
@@ -172,7 +171,7 @@ const Post: NextPage<Props> = ({ post, postsData }) => {
           )}
         </Flex>
       </Box>
-      <VStack align="end" px={[0, 16]}>
+      <VStack align="end" px={[0, 16]} mt={16}>
         <Heading
           as="h3"
           textTransform="uppercase"
@@ -202,6 +201,78 @@ const Post: NextPage<Props> = ({ post, postsData }) => {
           </TwitterShareButton>
         </HStack>
       </VStack>
+      <Flex justify="space-between" mt={16}>
+        {prev && (
+          <NextLink
+            href={`/post/${prev.id}${
+              'category' in router.query ? `?category=${queryGenre}` : ''
+            }`}
+            passHref
+          >
+            <Link
+              href="/"
+              flexGrow={1}
+              borderColor="body"
+              border="1px solid"
+              textAlign="center"
+              h={10}
+              lineHeight={10}
+              fontSize={['sm', 'md']}
+              _hover={{
+                color: 'accent',
+                borderColor: 'accent',
+              }}
+            >
+              Prev
+            </Link>
+          </NextLink>
+        )}
+        <NextLink href="/" passHref>
+          <Link
+            href="/"
+            flexGrow={1}
+            borderColor="body"
+            border="1px solid"
+            borderX="0px"
+            textAlign="center"
+            h={10}
+            lineHeight={10}
+            fontSize={['sm', 'md']}
+            _hover={{
+              color: 'accent',
+              borderColor: 'accent',
+            }}
+          >
+            Home
+          </Link>
+        </NextLink>
+
+        {next && (
+          <NextLink
+            href={`/post/${next.id}${
+              'category' in router.query ? `?category=${queryGenre}` : ''
+            }`}
+            passHref
+          >
+            <Link
+              href="/"
+              flexGrow={1}
+              borderColor="body"
+              border="1px solid"
+              textAlign="center"
+              h={10}
+              lineHeight={10}
+              fontSize={['sm', 'md']}
+              _hover={{
+                color: 'accent',
+                borderColor: 'accent',
+              }}
+            >
+              Next
+            </Link>
+          </NextLink>
+        )}
+      </Flex>
     </Box>
   );
 };
