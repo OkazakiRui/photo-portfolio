@@ -60,8 +60,7 @@ const Post: NextPage<Props> = ({ post, postsData }) => {
           images: [
             {
               url: `${post.photo.url}?w=1200`,
-              width: post.photo.width,
-              height: post.photo.height,
+              width: 1200,
               alt: 'title' in post ? post.title : 'No Title',
               type: 'image/jpeg',
             },
