@@ -21,7 +21,7 @@ export default {
 };
 
 export const openGraph = {
-  url: 'https://photograph-portfolio-gamma.vercel.app/',
+  url: 'https://photograph-portfolio-okazakirui.vercel.app/',
   type: 'website',
   locale: 'ja_JP',
   site_name: 'RuiOkazaki-PhotographPortfolio',
