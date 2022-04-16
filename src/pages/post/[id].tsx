@@ -103,7 +103,7 @@ const Post: NextPage<Props> = ({ post, postsData }) => {
             pos="absolute"
             zIndex={1}
             bottom={2}
-            left={[2, 16]}
+            left={2}
             textTransform="uppercase"
           >
             {'title' in post ? post.title : 'No Title'}
