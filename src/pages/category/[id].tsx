@@ -11,14 +11,12 @@ import { openGraph } from 'libs/next-seo.config';
 type Props = {
   posts: PostItem[];
   genres: GenreItem[];
+  currentGenre: string;
 };
 
-const Category: NextPage<Props> = ({ posts, genres }) => (
+const Category: NextPage<Props> = ({ posts, genres, currentGenre }) => (
   <>
-    <NextSeo
-      title={'genreJPName' in genres[0] ? genres[0].genreJPName : 'No Category'}
-      openGraph={openGraph}
-    />
+    <NextSeo title={currentGenre || 'No Category'} openGraph={openGraph} />
     <Layout genres={genres}>
       <PhotoList posts={posts} />
     </Layout>
@@ -50,6 +48,7 @@ export const getStaticProps = async ({
     props: {
       posts: posts.contents,
       genres: genres.contents,
+      currentGenre: contents[0].genreJPName,
     },
   };
 };
