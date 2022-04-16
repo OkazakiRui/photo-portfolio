@@ -5,6 +5,7 @@ import Logo from 'components/Logo';
 import OriginalLink from 'components/OriginalLink';
 import { GenreItem } from 'apis/genre';
 import { useRouter } from 'next/router';
+import { motion, AnimatePresence } from 'framer-motion';
 
 type Props = {
   children: ReactNode;
@@ -23,54 +24,64 @@ const Layout: VFC<Props> = ({ children, genres }) => {
   const router = useRouter();
 
   return (
-    <Box p={[4, 6]} pt={[4, `calc(${elementHeight}px + 1.5rem)`]}>
-      <Flex
-        as="header"
-        ref={headerElement}
-        pos={['static', 'fixed']}
-        zIndex="999999"
-        flexDirection={['column', 'row']}
-        justify="space-between"
-        align="left"
-        w="full"
-        pt={[0, 6]}
-        px={[0, 6]}
-        top={0}
-        left={0}
-        mb={[4, 0]}
-        pointerEvents="none"
+    <AnimatePresence>
+      <Box
+        p={[4, 6]}
+        pt={[4, `calc(${elementHeight}px + 1.5rem)`]}
+        as={motion.div}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition="all 1s"
       >
-        <Box pointerEvents="auto">
-          <Logo />
-        </Box>
-        <VStack as={List} align="left" mt={[2, 0]} pointerEvents="auto">
-          <ListItem>
-            <OriginalLink
-              url="/"
-              label="selected"
-              selected={router.asPath === '/'}
-            />
-          </ListItem>
-          <ListItem>
-            <OriginalLink
-              url="/category/all"
-              label="all"
-              selected={router.asPath === '/category/all'}
-            />
-          </ListItem>
-          {genres.map((genre) => (
-            <ListItem key={genre.id}>
+        <Flex
+          as="header"
+          ref={headerElement}
+          pos={['static', 'fixed']}
+          zIndex="999999"
+          flexDirection={['column', 'row']}
+          justify="space-between"
+          align="left"
+          w="full"
+          pt={[0, 6]}
+          px={[0, 6]}
+          top={0}
+          left={0}
+          mb={[4, 0]}
+          pointerEvents="none"
+        >
+          <Box pointerEvents="auto">
+            <Logo />
+          </Box>
+          <VStack as={List} align="left" mt={[2, 0]} pointerEvents="auto">
+            <ListItem>
               <OriginalLink
-                url={`/category/${genre.genreName}`}
-                label={genre.genreName}
-                selected={router.asPath === `/category/${genre.genreName}`}
+                url="/"
+                label="selected"
+                selected={router.asPath === '/'}
               />
             </ListItem>
-          ))}
-        </VStack>
-      </Flex>
-      {children}
-    </Box>
+            <ListItem>
+              <OriginalLink
+                url="/category/all"
+                label="all"
+                selected={router.asPath === '/category/all'}
+              />
+            </ListItem>
+            {genres.map((genre) => (
+              <ListItem key={genre.id}>
+                <OriginalLink
+                  url={`/category/${genre.genreName}`}
+                  label={genre.genreName}
+                  selected={router.asPath === `/category/${genre.genreName}`}
+                />
+              </ListItem>
+            ))}
+          </VStack>
+        </Flex>
+        {children}
+      </Box>
+    </AnimatePresence>
   );
 };
 
