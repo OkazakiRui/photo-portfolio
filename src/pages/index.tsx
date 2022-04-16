@@ -4,15 +4,19 @@ import { getAllGenre, getAllPost } from 'libs/apiClient';
 import type { NextPage } from 'next';
 import PhotoList from 'components/PhotoList';
 import { GenreItem } from 'apis/genre';
+import { NextSeo } from 'next-seo';
 
 type Props = {
   posts: PostItem[];
   genres: GenreItem[];
 };
 const Index: NextPage<Props> = ({ posts, genres }) => (
-  <Layout genres={genres}>
-    <PhotoList posts={posts} />
-  </Layout>
+  <>
+    <NextSeo title="Home" />
+    <Layout genres={genres}>
+      <PhotoList posts={posts} />
+    </Layout>
+  </>
 );
 
 export const getStaticProps = async () => {

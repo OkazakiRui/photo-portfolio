@@ -5,6 +5,7 @@ import React from 'react';
 import { GenreItem } from 'apis/genre';
 import Layout from 'components/Layout';
 import PhotoList from 'components/PhotoList';
+import { NextSeo } from 'next-seo';
 
 type Props = {
   posts: PostItem[];
@@ -12,9 +13,14 @@ type Props = {
 };
 
 const Category: NextPage<Props> = ({ posts, genres }) => (
-  <Layout genres={genres}>
-    <PhotoList posts={posts} />
-  </Layout>
+  <>
+    <NextSeo
+      title={'genreJPName' in genres[0] ? genres[0].genreJPName : 'No Category'}
+    />
+    <Layout genres={genres}>
+      <PhotoList posts={posts} />
+    </Layout>
+  </>
 );
 
 export const getStaticPaths = async () => {
