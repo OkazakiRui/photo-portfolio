@@ -50,7 +50,24 @@ const Post: NextPage<Props> = ({ post, postsData }) => {
 
   return (
     <>
-      <NextSeo title={'title' in post ? post.title : 'No Title'} />
+      <NextSeo
+        title={'title' in post ? post.title : 'No Title'}
+        openGraph={{
+          url: 'https://photograph-portfolio-gamma.vercel.app/',
+          type: 'website',
+          locale: 'ja_JP',
+          site_name: 'RuiOkazaki-PhotographPortfolio',
+          images: [
+            {
+              url: `${post.photo.url}?w=1200`,
+              width: post.photo.width,
+              height: post.photo.height,
+              alt: 'title' in post ? post.title : 'No Title',
+              type: 'image/jpeg',
+            },
+          ],
+        }}
+      />
       <Box p={[4, 6]}>
         <Box as="header" pos="relative" zIndex={1}>
           <Logo />
