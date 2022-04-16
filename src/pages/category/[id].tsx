@@ -6,6 +6,7 @@ import { GenreItem } from 'apis/genre';
 import Layout from 'components/Layout';
 import PhotoList from 'components/PhotoList';
 import { NextSeo } from 'next-seo';
+import { openGraph } from 'libs/next-seo.config';
 
 type Props = {
   posts: PostItem[];
@@ -16,6 +17,7 @@ const Category: NextPage<Props> = ({ posts, genres }) => (
   <>
     <NextSeo
       title={'genreJPName' in genres[0] ? genres[0].genreJPName : 'No Category'}
+      openGraph={openGraph}
     />
     <Layout genres={genres}>
       <PhotoList posts={posts} />

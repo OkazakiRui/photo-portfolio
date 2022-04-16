@@ -5,6 +5,7 @@ import type { NextPage } from 'next';
 import PhotoList from 'components/PhotoList';
 import { GenreItem } from 'apis/genre';
 import { NextSeo } from 'next-seo';
+import { openGraph } from 'libs/next-seo.config';
 
 type Props = {
   posts: PostItem[];
@@ -13,7 +14,7 @@ type Props = {
 
 const All: NextPage<Props> = ({ posts, genres }) => (
   <>
-    <NextSeo title="全ての写真" />
+    <NextSeo title="全ての写真" openGraph={openGraph} />
     <Layout genres={genres}>
       <PhotoList posts={posts} />
     </Layout>
